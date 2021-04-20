@@ -47,6 +47,12 @@ namespace MovieAPI.Controllers
 
         }
 
+        [HttpPost("AddMovie")]
+        public ActionResult<MovieProp> AddMovie(MovieProp movie)
+        {
+            _moviePropService.Add(movie);
+            return CreatedAtAction("AddMovie", new { id = movie.movieID, movie });
+        }
 
     }
 }
